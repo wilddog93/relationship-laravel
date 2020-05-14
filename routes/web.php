@@ -2,6 +2,7 @@
 
 use App\User;
 use App\Post;
+use App\Tag;
 
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,8 @@ Route::get('{user}/posts', function(User $user){
 
 Route::get('posts/{post}', function(Post $post){
     return view('posts.show', compact('post'));
+});
+
+Route::get('tags/{tag}/posts', function(Tag $tag){
+    return $tag->posts;
 });

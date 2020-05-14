@@ -4,28 +4,22 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Users</div>
 
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nama</th>
-                                <th>Negara</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($users as $user)
-                                <tr>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->address->country }}</td>
-                                </tr>
+            @foreach ($posts as $post)
+                <div class="card mb-3">
+                    <div class="card-header font-weight-bold">{{ $post->title }}</div>
+
+                    <div class="card-body">
+                        {{ $post->body }}
+
+                        <ul>
+                            @foreach($post->tags as $tag)
+                            <li>{{ $tag->name }}</li>
                             @endforeach
-                        </tbody>
-                    </table>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
